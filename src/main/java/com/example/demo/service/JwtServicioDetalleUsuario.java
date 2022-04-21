@@ -22,12 +22,12 @@ public class JwtServicioDetalleUsuario implements UserDetailsService {
         UsuDao userDao;
         
 	@Override
-	public UserDetails loadUserByUsername(String nombreUsuario) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-            Usu usu = userDao.findByUsername(nombreUsuario);
+            Usu usu = userDao.findByUsername(username);
             
             if (usu==null) {
-                throw new UsernameNotFoundException("Usuario con el nombre: " + nombreUsuario+" no encontrado");
+                throw new UsernameNotFoundException("Usuario con el nombre: " + username+" no encontrado");
             }
             ArrayList<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
             

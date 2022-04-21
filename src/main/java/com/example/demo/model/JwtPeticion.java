@@ -6,8 +6,8 @@ public class JwtPeticion implements Serializable {
 
 	private static final long serialVersionUID = 5926468583005150707L;
 	
-	private String nombreUsuario;
-	private String contraseña;
+	private String username;
+;	private String password;
 	
 	//need default constructor for JSON Parsing
 	public JwtPeticion()
@@ -16,23 +16,23 @@ public class JwtPeticion implements Serializable {
 	}
 
 	public JwtPeticion(String nombreUsuario, String contraseña) {
-		this.setNombreUsuario(nombreUsuario);
-		this.setContraseña(contraseña);
+		this.setUsername(nombreUsuario);
+		this.setPassword(contraseña);
 	}
 
-	public String getNombreUsuario() {
-		return this.nombreUsuario;
+	public String getUsername() {
+		return this.username;
 	}
 
-	public void setNombreUsuario(String username) {
-		this.nombreUsuario = username;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getContraseña() {
-		return this.contraseña;
+	public String getPassword() {
+		return this.password;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

@@ -25,7 +25,7 @@ import com.example.demo.dao.RolDao;
 import com.example.demo.dao.UsuDao;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class Controlador {
     @Autowired

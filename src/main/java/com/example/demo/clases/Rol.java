@@ -13,10 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
-/**
-* Clase rol representante del modelo
-**/
-@Data
+
 @Entity
 @Table(name="ROL")
 public class Rol implements Serializable{
@@ -34,4 +31,28 @@ public class Rol implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_usu", nullable=false)
     private Usu usu;
+
+    public Usu getUsu() {
+        return usu;
+    }
+
+    public void setUsu(Usu usu) {
+        this.usu = usu;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }

@@ -21,7 +21,7 @@ import com.example.demo.model.JwtPeticion;
 import com.example.demo.model.JwtResponse;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class JwtAuthenticationController {
 
 	@Autowired
@@ -33,26 +33,27 @@ public class JwtAuthenticationController {
 	@Autowired
 	private UserDetailsService jwtMemoriaDetallesUsuario;
 
+        @CrossOrigin
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtPeticion authenticationRequest)
 			throws Exception {
 
-		authenticate(authenticationRequest.getNombreUsuario(), authenticationRequest.getContraseña());
+		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
 		final UserDetails detallesUsuario = jwtMemoriaDetallesUsuario
-				.loadUserByUsername(authenticationRequest.getNombreUsuario());
+				.loadUserByUsername(authenticationRequest.getUsername());
 
 		final String token = jwtTokenUtil.generateToken(detallesUsuario);
 
 		return ResponseEntity.ok(new JwtResponse(token));
 	}
 
-	private void authenticate(String nombreUsuario, String contraseña) throws Exception {
-		Objects.requireNonNull(nombreUsuario);
-		Objects.requireNonNull(contraseña);
+	private void authenticate(String username, String password) throws Exception {
+		Objects.requireNonNull(username);
+		Objects.requireNonNull(password);
 
 		try {
-			manejadorAutentificacion.authenticate(new UsernamePasswordAuthenticationToken(nombreUsuario, contraseña));
+			manejadorAutentificacion.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 		} catch (DisabledException e) {
 			throw new Exception("Usuario Desactivado", e);
 		} catch (BadCredentialsException e) {
