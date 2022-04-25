@@ -30,4 +30,9 @@ public class ClientesControlador {
     public List<Clientes> listarClientesPorUsuario(@RequestBody Usuario usuario) {
         return (List<Clientes>) clientesModelo.listarClientesPorUsuario(usuario);
     }
+
+    public void eliminar(Clientes clientes){
+        System.out.println("Apunto de eliminar");
+        clientesModelo.eliminar(clientes);
+    }
 }

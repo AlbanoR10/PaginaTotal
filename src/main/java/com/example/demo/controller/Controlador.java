@@ -173,6 +173,11 @@ public class Controlador {
     public List<Clientes> listarClientesPorUsuarioNumero(@RequestBody Usuario usuario){
         return clientesControlador.listarClientesPorUsuario(usuario);
     }
+    @CrossOrigin
+    @PostMapping(value="/eliminarCliente", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void eliminarUsuario(@RequestBody Clientes clientes){
+        clientesControlador.eliminar(clientes);
+    }
     
      //=========================================================================================================
     @CrossOrigin

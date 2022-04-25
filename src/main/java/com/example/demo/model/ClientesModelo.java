@@ -36,4 +36,9 @@ public class ClientesModelo {
         Usuario x = usuarioDao.findByNumeroEmpleado(usuario.getNumeroEmpleado());
         return (List<Clientes>) clientesDao.findByUsuario(x);
     }
+
+    public void eliminar(Clientes clientes){
+        System.out.println("Apunto de eliminar");
+        clientesDao.delete(clientes);
+    }
 }

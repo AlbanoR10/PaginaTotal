@@ -74,6 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                         "/eliminarProspecto", 
                                         "/eliminarCotizacion",
                                         "/eliminarUsuario", 
+                                        "/eliminarCliente", 
                                         "/listarCotizacionPorId", 
                                         "/listarClientesPorId",
                                         "/listarUsuarioPorId",
