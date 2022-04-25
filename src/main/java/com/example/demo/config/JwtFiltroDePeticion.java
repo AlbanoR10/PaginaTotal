@@ -18,7 +18,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.example.demo.service.JwtServicioDetalleUsuario;
 
 import io.jsonwebtoken.ExpiredJwtException;
-
+/**
+* Clase JwtFiltroDePeticion representante del modelo
+**/
 @Component
 public class JwtFiltroDePeticion extends OncePerRequestFilter {
 
@@ -27,7 +29,12 @@ public class JwtFiltroDePeticion extends OncePerRequestFilter {
 
 	@Autowired
 	private JwtTokenUtilidad jwtTokenUtil;
-
+        /**
+        * Método para revisar tokens de seguridad
+        * @param peticion objeto de la clase HttpServletRequest
+        * @param respuesta objeto de la clase HttpServletResponse
+        * @param cadena objeto de la clase FilterChain
+        **/
 	@Override
 	protected void doFilterInternal(HttpServletRequest peticion, HttpServletResponse respuesta, FilterChain cadena)
 			throws ServletException, IOException {

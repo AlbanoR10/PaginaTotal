@@ -15,6 +15,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 
+/**
+* Clase CotizacionControlador que es el controlador de la clase Cotizacion
+**/
 @Component
 public class CotizacionControlador {
 
@@ -27,6 +30,10 @@ public class CotizacionControlador {
     @Autowired
     UsuarioDao usuarioDao;
 
+    /**
+    * Método para guardar cotizacion
+    * @param cotizacion objeto de la Cotizacion
+    **/
     public void guardar(Cotizacion cotizacion) {
         //Verificacion del correo
         String regx = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
@@ -53,10 +60,18 @@ public class CotizacionControlador {
         cotizacionModelo.guardar(cotizacion);
     }
 
+    /**
+    * Método para listar cotizacion
+    * @return List<Cotizacion>
+    **/
     public List<Cotizacion> listarCotizacion() {
         return cotizacionModelo.listarCotizacion();
     }
 
+    /**
+    * Método para actualizar cotizacion
+    * @param cotizacion objeto de la Cotizacion
+    **/
     public void actualizarCotizacion(Cotizacion cotizacion) {
         cotizacionModelo.actualizarCotizacion(cotizacion);
     }
@@ -76,15 +91,27 @@ public class CotizacionControlador {
         }
     }
     
+    /**
+    * Método para eliminar cotizacion
+    * @param cotizacion objeto de la Cotizacion
+    **/
     public void eliminar(Cotizacion cotizacion){
         cotizacionModelo.eliminar(cotizacion);
     }
     
+    /**
+    * Método para listar cotizacion por id
+    * @param cotizacion objeto de la Cotizacion
+    **/
     public Cotizacion listarCotizacionPorId(@RequestBody Cotizacion cotizacion) {
         usuarioDao.findByNumeroEmpleado(cotizacion.getUsuario().getNumeroEmpleado());
         return cotizacionModelo.listarCotizacionPorId(cotizacion);
     }
     
+    /**
+    * Método para listar cotizaciones por usuario
+    * @param usuario objeto de la Usuario
+    **/
     public List<Cotizacion> listarCotizacionPorUsuario(@RequestBody Usuario usuario) {
         return (List<Cotizacion>) cotizacionModelo.listarCotizacionPorUsuario(usuario);
     }

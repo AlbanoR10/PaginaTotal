@@ -25,6 +25,10 @@ import com.example.demo.dao.RolDao;
 import com.example.demo.dao.UsuDao;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+/**
+ * Clase Controlador que es el la vista-controlador para la entrada de peticiones a las urls
+ *
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class Controlador {
@@ -67,24 +71,44 @@ public class Controlador {
 //        return jwtTokenUtil.getUsernameFromToken(nombre);
 //    }
     
+    /**
+     * Método para listar Prospectos
+     *
+     * @return List<Prospecto> 
+     */
     @CrossOrigin
     @GetMapping("/listarProspectos")
     public List<Prospecto> listarProspecto(){
         return (List<Prospecto>) prospectosControlador.listar();
     }
     
+    /**
+     * Método para guardar Prospecto
+     *
+     * @param prospecto objeto de la Prospecto
+     */
     @CrossOrigin
     @PostMapping(value="/guardarProspecto", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void guardarProspecto(@RequestBody Prospecto prospecto){
         prospectosControlador.guardar(prospecto);
     }
     
+    /**
+     * Método para eliminar Prospecto
+     *
+     * @param prospecto objeto de la Prospecto
+     */
     @CrossOrigin
     @PostMapping(value="/eliminarProspecto", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void eliminarProspecto(@RequestBody Prospecto prospecto){
         prospectosControlador.eliminar(prospecto);
     }
     
+    /**
+     * Método para editar Prospecto
+     *
+     * @param prospecto objeto de la Prospecto
+     */
     @CrossOrigin
     @PostMapping(value="/editarProspecto", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void editarProspecto(@RequestBody Prospecto prospecto){
@@ -93,42 +117,81 @@ public class Controlador {
     
     
     //=========================================================================================================
+    
+    /**
+     * Método para listar Cotizaciones
+     *
+     * @return List<Cotizacion>
+     */
     @CrossOrigin
     @GetMapping("/listarCotizaciones")
     public List<Cotizacion> listarCotizacion(){
         return cotizacionControlador.listarCotizacion();
     }
     
+    /**
+     * Método para guardar Cotizacion
+     *
+     * @param cotizacion objeto de la Cotizacion
+     */
     @CrossOrigin
     @PostMapping(value="/guardarCotizacion", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void guardar(@RequestBody Cotizacion cotizacion){
         cotizacionControlador.guardar(cotizacion);
     }
     
+    /**
+     * Método para eliminar Cotizacion
+     *
+     * @param cotizacion objeto de la Cotizacion
+     */
     @CrossOrigin
     @PostMapping(value="/eliminarCotizacion", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void eliminarCotizacion(@RequestBody Cotizacion cotizacion){
         cotizacionControlador.eliminar(cotizacion);
     }
 
+    /**
+     * Método para listar Cotizaciones por usuario
+     *
+     * @param usuario objeto de la Usuario
+     * @return Set<Cotizacion>
+     */
     @CrossOrigin
     @PostMapping(value="/listarCotizacionesPorUsuario", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Set<Cotizacion> listarCotizacionesPorUsuario(@RequestBody Usuario usuario){
         return usuarioControlador.listarCotizacionesPorUsuario(usuario);
     }
     
+    /**
+     * Método para listar Cotizaciones por id
+     *
+     * @param cotizacion objeto de la Cotizacion
+     * @return Cotizacion
+     */
     @CrossOrigin
     @PostMapping(value="/listarCotizacionPorId", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Cotizacion listarCotizacionPorId(@RequestBody Cotizacion cotizacion){
         return cotizacionControlador.listarCotizacionPorId(cotizacion);
     }
     
+    /**
+     * Método para listar Cotizaciones por numero de Usuario
+     *
+     * @param usuario objeto de la Usuario
+     * @return List<Cotizacion>
+     */
     @CrossOrigin
     @PostMapping(value="/listarCotizacionPorUsuarioNumero", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Cotizacion> listarCotizacionPorUsuarioNumero(@RequestBody Usuario usuario){
         return cotizacionControlador.listarCotizacionPorUsuario(usuario);
     }
     
+    /**
+     * Método para editar Cotizacion
+     *
+     * @param cotizacion objeto de la Cotizacion
+     */
     @CrossOrigin
     @PostMapping(value="/editarCotizacion", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void editarCotizacion(@RequestBody Cotizacion cotizacion){
@@ -137,18 +200,34 @@ public class Controlador {
     
     //=========================================================================================================
     
+    /**
+     * Método para listar Clientes
+     *
+     * @return List<Clientes>
+     */
     @CrossOrigin
     @GetMapping("/listarClientes")
     public List<Clientes> listarClientes(){
         return clientesControlador.listar();
     }
     
+    /**
+     * Método para listar clientes por usuario
+     *
+     * @param usuario objeto de la Usuario
+     * @return Set<Clientes>
+     */
     @CrossOrigin
     @PostMapping(value="/listarClientesPorUsuario", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Set<Clientes> listarCientesPorUsuario(@RequestBody Usuario usuario){
         return usuarioControlador.listarClientesPorUsuario(usuario);
     }
     
+    /**
+     * Método para guardar Clientes
+     *
+     * @param clientes objeto de la clase Clientes
+     */
     @CrossOrigin
     @PostMapping(value="/guardarCliente", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void guardarClientes(@RequestBody Clientes clientes){
@@ -157,22 +236,46 @@ public class Controlador {
         clientesControlador.guardar(clientes);
     }
     
+    /**
+     * Método para listar Cotizaciones por id
+     *
+     * @param clientes objeto de la Clientes
+     * @return Clientes
+     */
     @CrossOrigin
     @PostMapping(value="/listarClientesPorId", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Clientes listarClientesPorId(@RequestBody Clientes clientes){
         return clientesControlador.listarClientesPorId(clientes);
     }
+
+    /**
+     * Método para editar Clientes
+     *
+     * @param clientes objeto de la Clientes
+     */
     @CrossOrigin
     @PostMapping(value="/editarClientes", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void editarClientes(@RequestBody Clientes clientes){
         clientesControlador.guardar(clientes);
     }
     
+    /**
+     * Método para listar Clientes por numero de Usuario
+     *
+     * @param usuario objeto de la Usuario
+     * @return List<Clientes>
+     */
     @CrossOrigin
     @PostMapping(value="/listarClientesPorUsuarioNumero", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Clientes> listarClientesPorUsuarioNumero(@RequestBody Usuario usuario){
         return clientesControlador.listarClientesPorUsuario(usuario);
     }
+
+    /**
+     * Método para eliminar Cliente
+     *
+     * @param clientes objeto de la Clientes
+     */
     @CrossOrigin
     @PostMapping(value="/eliminarCliente", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void eliminarUsuario(@RequestBody Clientes clientes){
@@ -180,6 +283,12 @@ public class Controlador {
     }
     
      //=========================================================================================================
+    
+    /**
+     * Método para guardar Usuario
+     *
+     * @param usuario objeto de la clase Usuario
+     */
     @CrossOrigin
     @PostMapping(value="/guardarUsuario", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void guardar(@RequestBody Usuario usuario){
@@ -201,24 +310,46 @@ public class Controlador {
         usuarioControlador.guardar(usuario);
     }
     
+    /**
+     * Método para editar Usuario
+     *
+     * @param usuario objeto de la Usuario
+     */
     @CrossOrigin
     @PostMapping(value="/editarUsuario", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void eitarUsuario(@RequestBody Usuario usuario){
         usuarioControlador.guardar(usuario);
     }
     
+    /**
+     * Método para listar usuarios
+     *
+     * @return Usuarios
+     */
     @CrossOrigin
     @GetMapping("/listarUsuarios")
     public List<Usuario> listarUsuario(){
         return usuarioControlador.listarUsuario();
     }
     
+    /**
+     * Método para listar Usuarios por id
+     *
+     * @param usuario objeto de la Usuarios
+     * @return Usuario
+     */
     @CrossOrigin
     @PostMapping(value="/listarUsuarioPorId", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Usuario listarUsuarioPorId(@RequestBody Usuario usuario){
         return usuarioControlador.listarUsuarioPorId(usuario);
     }
     
+    /**
+     * Método para listar Usuarios por numero de emepleado
+     *
+     * @param usuario objeto de la Usuarios
+     * @return Usuario
+     */
     @CrossOrigin
     @PostMapping(value="/listarUsuarioPorNumeroEmpleado", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Usuario listarUsuarioPorNumeroEmpleado(@RequestBody Usuario usuario){
@@ -226,6 +357,11 @@ public class Controlador {
         return usuarioControlador.listarUsuarioPorNumeroEmpleado(usuario);
     }
     
+    /**
+     * Método para eliminar Usuario
+     *
+     * @param usuario objeto de la Usuario
+     */
     @CrossOrigin
     @PostMapping(value="/eliminarUsuario", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void eliminarUsuario(@RequestBody Usuario usuario){

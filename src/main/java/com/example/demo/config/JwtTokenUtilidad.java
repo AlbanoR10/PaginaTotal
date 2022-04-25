@@ -13,7 +13,9 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-
+/**
+* Clase JwtTokenUtilidad que lidea con los tokens
+**/
 @Component
 public class JwtTokenUtilidad implements Serializable {
 
@@ -23,6 +25,7 @@ public class JwtTokenUtilidad implements Serializable {
 
 	@Value("${jwt.secret}")
 	private String secreto;
+
 
 	public String getUsernameFromToken(String token) {
 		return getClaimFromToken(token, Claims::getSubject);

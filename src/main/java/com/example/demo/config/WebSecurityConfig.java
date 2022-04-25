@@ -15,6 +15,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+* Clase WebSecurityConfig que maneja la seguridad web
+**/
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -29,6 +32,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtFiltroDePeticion jwtFiltroPeticion;
 
+        /**
+        * Método para codificar password
+        * @param autentificacion objeto de la clase AuthenticationManagerBuilder
+        **/
 	@Override
 	public void configure(AuthenticationManagerBuilder autentificacion) throws Exception {
 		// configure AuthenticationManager so that it knows from where to load
@@ -37,13 +44,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		autentificacion.userDetailsService(jwtDetallesServicioUsuario).passwordEncoder(passwordEncoder());
 	}
 
+        /**
+        * Método que regresa objeto que encrypta
+        * @return BCryptPasswordEncoder
+        **/
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
         
         
-
+        /**
+        * Método que regresa objeto manejador de autentificacion
+        * @return authenticationManagerBean
+        **/
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -51,7 +65,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
         
         
-
+        /**
+        * Método que configura las urls de la app
+        **/
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		// We don't need CSRF for this example

@@ -2,6 +2,9 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 
+/**
+* Clase JwtPeticion que es el modelo de la clase JWT
+**/
 public class JwtPeticion implements Serializable {
 
 	private static final long serialVersionUID = 5926468583005150707L;

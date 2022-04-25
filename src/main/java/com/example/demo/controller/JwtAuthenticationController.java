@@ -20,44 +20,59 @@ import com.example.demo.config.JwtTokenUtilidad;
 import com.example.demo.model.JwtPeticion;
 import com.example.demo.model.JwtResponse;
 
+/**
+ * Clase JwtAuthenticationController que es el controlador de la clase JWT
+ *
+ */
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class JwtAuthenticationController {
 
-	@Autowired
-	private AuthenticationManager manejadorAutentificacion;
+    @Autowired
+    private AuthenticationManager manejadorAutentificacion;
 
-	@Autowired
-	private JwtTokenUtilidad jwtTokenUtil;
+    @Autowired
+    private JwtTokenUtilidad jwtTokenUtil;
 
-	@Autowired
-	private UserDetailsService jwtMemoriaDetallesUsuario;
+    @Autowired
+    private UserDetailsService jwtMemoriaDetallesUsuario;
 
-        @CrossOrigin
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtPeticion authenticationRequest)
-			throws Exception {
+    /**
+     * Método para autenticar usuarios, muestra el login
+     *
+     * @param authenticationRequest objeto de la JwtPeticion
+     * @return JwtResponse 
+     */
+    @CrossOrigin
+    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtPeticion authenticationRequest)
+            throws Exception {
 
-		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+        authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
-		final UserDetails detallesUsuario = jwtMemoriaDetallesUsuario
-				.loadUserByUsername(authenticationRequest.getUsername());
+        final UserDetails detallesUsuario = jwtMemoriaDetallesUsuario
+                .loadUserByUsername(authenticationRequest.getUsername());
 
-		final String token = jwtTokenUtil.generateToken(detallesUsuario);
+        final String token = jwtTokenUtil.generateToken(detallesUsuario);
 
-		return ResponseEntity.ok(new JwtResponse(token));
-	}
+        return ResponseEntity.ok(new JwtResponse(token));
+    }
 
-	private void authenticate(String username, String password) throws Exception {
-		Objects.requireNonNull(username);
-		Objects.requireNonNull(password);
+    /**
+     * Método para autenticar usuarios
+     *
+     * @param authenticationRequest objeto de la JwtPeticion
+     */
+    private void authenticate(String username, String password) throws Exception {
+        Objects.requireNonNull(username);
+        Objects.requireNonNull(password);
 
-		try {
-			manejadorAutentificacion.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-		} catch (DisabledException e) {
-			throw new Exception("Usuario Desactivado", e);
-		} catch (BadCredentialsException e) {
-			throw new Exception("Credenciales Invalidas", e);
-		}
-	}
+        try {
+            manejadorAutentificacion.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+        } catch (DisabledException e) {
+            throw new Exception("Usuario Desactivado", e);
+        } catch (BadCredentialsException e) {
+            throw new Exception("Credenciales Invalidas", e);
+        }
+    }
 }
