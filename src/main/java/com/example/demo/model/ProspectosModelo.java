@@ -16,10 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Component
 public class ProspectosModelo {
 
-    /**
-    * Método para listar prospectos
-    * @return List<Prospectos>
-    **/
     @Autowired
     ProspectoDao prospectoDao;
     public List<Prospecto> listar(){
@@ -37,7 +33,7 @@ public class ProspectosModelo {
     /**
     * Método para elimin prospectos
     * @param prospecto objeto de la Prospecto
-    **/        
+    **/          
     public void eliminar(Prospecto prospecto){
         prospectoDao.delete(prospecto);
     }
@@ -45,7 +41,7 @@ public class ProspectosModelo {
     /**
     * Método para actualizar prospectos
     * @param prospecto objeto de la Prospecto
-    **/    
+    **/     
     public void actualizar(Prospecto prospecto){
         prospectoDao.save(prospecto);
     }

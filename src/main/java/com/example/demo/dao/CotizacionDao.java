@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Clase CotizacionDao para manejar CrudRepository<> de Cotizacion
+ * Clase CotizacionDao para manejar CrudRepository de Cotizacion
  *
  */
 public interface CotizacionDao extends CrudRepository<Cotizacion, Long>{

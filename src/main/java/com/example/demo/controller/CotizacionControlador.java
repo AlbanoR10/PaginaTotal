@@ -62,7 +62,7 @@ public class CotizacionControlador {
 
     /**
     * Método para listar cotizacion
-    * @return List<Cotizacion>
+    * @return lista de cotizaciones
     **/
     public List<Cotizacion> listarCotizacion() {
         return cotizacionModelo.listarCotizacion();
@@ -102,6 +102,7 @@ public class CotizacionControlador {
     /**
     * Método para listar cotizacion por id
     * @param cotizacion objeto de la Cotizacion
+    * @return lista de cotizaciones
     **/
     public Cotizacion listarCotizacionPorId(@RequestBody Cotizacion cotizacion) {
         usuarioDao.findByNumeroEmpleado(cotizacion.getUsuario().getNumeroEmpleado());
@@ -111,6 +112,7 @@ public class CotizacionControlador {
     /**
     * Método para listar cotizaciones por usuario
     * @param usuario objeto de la Usuario
+    * @return lista de cotizaciones
     **/
     public List<Cotizacion> listarCotizacionPorUsuario(@RequestBody Usuario usuario) {
         return (List<Cotizacion>) cotizacionModelo.listarCotizacionPorUsuario(usuario);

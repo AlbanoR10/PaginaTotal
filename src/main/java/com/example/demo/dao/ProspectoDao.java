@@ -4,7 +4,7 @@ import com.example.demo.clases.Prospecto;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Clase ProspectoDao para manejar CrudRepository<> de Prospectos
+ * Clase ProspectoDao para manejar CrudRepository de Prospectos
  *
  */
 public interface ProspectoDao extends CrudRepository<Prospecto, Long>{

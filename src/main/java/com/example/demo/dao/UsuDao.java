@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 /**
- * Clase UsuDao para manejar CrudRepository<> de Usu
+ * Clase UsuDao para manejar CrudRepository de Usu
  *
  */
 public interface UsuDao extends JpaRepository<Usu, Long>{

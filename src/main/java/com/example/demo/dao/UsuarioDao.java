@@ -4,7 +4,7 @@ import com.example.demo.clases.Usuario;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Clase UsuarioDao para manejar CrudRepository<> de Usuario
+ * Clase UsuarioDao para manejar CrudRepository de Usuario
  *
  */
 public interface UsuarioDao extends CrudRepository<Usuario, Long>{

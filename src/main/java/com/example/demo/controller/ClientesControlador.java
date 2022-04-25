@@ -28,6 +28,7 @@ public class ClientesControlador {
 
     /**
     * Método para listar clientes
+    * @return lista clientes
     **/
     public List<Clientes> listar() {
         return clientesModelo.listar();
@@ -36,6 +37,7 @@ public class ClientesControlador {
     /**
     * Método para listar clientes por id
     * @param clientes objeto de la cliente
+    * @return Clientes
     **/
     public Clientes listarClientesPorId(@RequestBody Clientes clientes){
         return clientesModelo.listarClientesPorId(clientes);
@@ -44,6 +46,7 @@ public class ClientesControlador {
     /**
     * Método para listar clientes por usuario
     * @param usuario objeto de la usuario
+    * @return lista de clientes
     **/
     public List<Clientes> listarClientesPorUsuario(@RequestBody Usuario usuario) {
         return (List<Clientes>) clientesModelo.listarClientesPorUsuario(usuario);
@@ -51,7 +54,7 @@ public class ClientesControlador {
 
     /**
     * Método para eliminar cliente
-    * @param cliente objeto de la cliente
+    * @param clientes objeto de la cliente
     **/
     public void eliminar(Clientes clientes){
         System.out.println("Apunto de eliminar");

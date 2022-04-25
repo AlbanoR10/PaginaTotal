@@ -13,8 +13,7 @@ public class CORSConfig {
 
 /**
 * Método para configurar CORS
-*
-* @param registry objeto de la clase CorsRegistry
+* @return objeto configurado
 */
     @Bean
     public WebMvcConfigurer CORSConfigurer(){

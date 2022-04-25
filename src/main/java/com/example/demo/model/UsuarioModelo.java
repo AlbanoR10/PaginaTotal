@@ -38,8 +38,7 @@ public class UsuarioModelo {
     
     /**
     * Método para listar usaurios
-    * @param cotizacion objeto de la Cotizacion
-    * @return List<Usuario>
+    * @return lista usuarios
     **/
     public List<Usuario> listarUsuario(){
         return (List<Usuario>)usuarioDao.findAll();
@@ -63,7 +62,7 @@ public class UsuarioModelo {
 
     /**
     * Método para listar usaurios
-    * @param cotizacion objeto de la Cotizacion
+    * @param usuario objeto de la clase usaurio
     * @return Usuario
     **/
     public Usuario listarUsuarioPorId(@RequestBody Usuario usuario){
@@ -71,9 +70,9 @@ public class UsuarioModelo {
     }
 
     /**
-    * Método para listar usaurios
-    * @param cotizacion objeto de la Cotizacion
-    * @return Set<Cotizacion>
+    * Método para listar usuarios
+    * @param usuario objeto de la Usuario
+    * @return set de cotizaciones
     **/
     public Set<Cotizacion> listarCotizacionesPorUsuario(@RequestBody Usuario usuario){
         //return (Cotizacion) usuarioDao.findById(usuario.getId()).get().getCotizacion();
@@ -83,7 +82,7 @@ public class UsuarioModelo {
     /**
     * Método para listar clientes por usuario
     * @param usuario objeto de la Usuario
-    * @return Set<Clientes>
+    * @return set de clientes
     **/
     public Set<Clientes> listarClientesPorUsuario(@RequestBody Usuario usuario){
         //return (Cotizacion) usuarioDao.findById(usuario.getId()).get().getCotizacion();

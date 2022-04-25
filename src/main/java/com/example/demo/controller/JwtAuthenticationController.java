@@ -41,7 +41,8 @@ public class JwtAuthenticationController {
      * Método para autenticar usuarios, muestra el login
      *
      * @param authenticationRequest objeto de la JwtPeticion
-     * @return JwtResponse 
+     * @throws Exception si hay fallas
+     * @return JwtResponse
      */
     @CrossOrigin
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
@@ -61,7 +62,9 @@ public class JwtAuthenticationController {
     /**
      * Método para autenticar usuarios
      *
-     * @param authenticationRequest objeto de la JwtPeticion
+     * @param username nombre de usuario STring
+     * @param password passwrod, String
+     * @throws Exception si hay fallas
      */
     private void authenticate(String username, String password) throws Exception {
         Objects.requireNonNull(username);

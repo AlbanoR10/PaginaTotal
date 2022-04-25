@@ -74,7 +74,7 @@ public class Controlador {
     /**
      * Método para listar Prospectos
      *
-     * @return List<Prospecto> 
+     * @return lista prospectos
      */
     @CrossOrigin
     @GetMapping("/listarProspectos")
@@ -121,7 +121,7 @@ public class Controlador {
     /**
      * Método para listar Cotizaciones
      *
-     * @return List<Cotizacion>
+     * @return lista cotizaciones
      */
     @CrossOrigin
     @GetMapping("/listarCotizaciones")
@@ -155,7 +155,7 @@ public class Controlador {
      * Método para listar Cotizaciones por usuario
      *
      * @param usuario objeto de la Usuario
-     * @return Set<Cotizacion>
+     * @return set de cotizaciones
      */
     @CrossOrigin
     @PostMapping(value="/listarCotizacionesPorUsuario", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -179,7 +179,7 @@ public class Controlador {
      * Método para listar Cotizaciones por numero de Usuario
      *
      * @param usuario objeto de la Usuario
-     * @return List<Cotizacion>
+     * @return lista cotizaciones
      */
     @CrossOrigin
     @PostMapping(value="/listarCotizacionPorUsuarioNumero", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -203,7 +203,7 @@ public class Controlador {
     /**
      * Método para listar Clientes
      *
-     * @return List<Clientes>
+     * @return lista clientes
      */
     @CrossOrigin
     @GetMapping("/listarClientes")
@@ -215,7 +215,7 @@ public class Controlador {
      * Método para listar clientes por usuario
      *
      * @param usuario objeto de la Usuario
-     * @return Set<Clientes>
+     * @return set de clientes
      */
     @CrossOrigin
     @PostMapping(value="/listarClientesPorUsuario", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -263,7 +263,7 @@ public class Controlador {
      * Método para listar Clientes por numero de Usuario
      *
      * @param usuario objeto de la Usuario
-     * @return List<Clientes>
+     * @return lista de clientes
      */
     @CrossOrigin
     @PostMapping(value="/listarClientesPorUsuarioNumero", consumes = MediaType.APPLICATION_JSON_VALUE)

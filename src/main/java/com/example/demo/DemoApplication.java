@@ -14,6 +14,7 @@ public class DemoApplication {
 
 /**
 * Método principal de la aplicación
+* @param args lista de strings
 */
 
     public static void main(String[] args) {

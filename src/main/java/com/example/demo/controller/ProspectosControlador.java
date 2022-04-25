@@ -34,7 +34,7 @@ public class ProspectosControlador {
     
     /**
     * Método para listar prospectos
-    * @return List<Prospectos>
+    * @return lista prospectos
     **/
     public List<Prospecto> listar(){
         return (List<Prospecto>) prospectosModelo.listar();

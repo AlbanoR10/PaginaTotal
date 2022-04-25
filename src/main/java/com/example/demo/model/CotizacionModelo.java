@@ -44,7 +44,7 @@ public class CotizacionModelo {
     
     /**
     * Método para listar cotizacion
-    * @return List<Cotizacion>
+    * @return lista de cotizaciones
     **/
     public List<Cotizacion> listarCotizacion(){
         return (List<Cotizacion>) cotizacionDao.findAll();
@@ -62,7 +62,7 @@ public class CotizacionModelo {
     /**
     * Método para actualizar cotizacion
     * @param cotizacion objeto de la Cotizacion
-    **/    
+    **/   
     public void actualizarCotizacion(Cotizacion cotizacion){
         cotizacionDao.save(cotizacion);
     }
@@ -70,6 +70,7 @@ public class CotizacionModelo {
     /**
     * Método para listar cotizacion por id
     * @param cotizacion objeto de la Cotizacion
+    * @return lista de cotizaciones
     **/
     public Cotizacion listarCotizacionPorId(@RequestBody Cotizacion cotizacion) {
         return cotizacionDao.findById(cotizacion.getIdCotizacion()).get();
@@ -78,6 +79,7 @@ public class CotizacionModelo {
     /**
     * Método para listar cotizaciones por usuario
     * @param usuario objeto de la Usuario
+    * @return lista de cotizaciones
     **/
     public List<Cotizacion> listarCotizacionPorUsuario(@RequestBody Usuario usuario) {
         Usuario x = usuarioDao.findByNumeroEmpleado(usuario.getNumeroEmpleado());

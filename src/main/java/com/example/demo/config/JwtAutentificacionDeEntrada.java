@@ -21,7 +21,7 @@ public class JwtAutentificacionDeEntrada implements AuthenticationEntryPoint, Se
         /**
         * Método para mostrar autentificación incorrecto
         * @param peticion objeto de la clase HttpServletRequest
-        * @param respuest objeto de la clase HttpServletResponse
+        * @param respuesta objeto de la clase HttpServletResponse
         **/
 	@Override
 	public void commence(HttpServletRequest peticion, HttpServletResponse respuesta

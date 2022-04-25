@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Clase ClientesDao para manejar CrudRepository<> de clientes
+ * Clase ClientesDao para manejar CrudRepository de clientes
  *
  */
 public interface ClientesDao extends CrudRepository<Clientes, Long>{
