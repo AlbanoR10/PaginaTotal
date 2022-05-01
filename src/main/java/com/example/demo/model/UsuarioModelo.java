@@ -49,7 +49,7 @@ public class UsuarioModelo {
     * @param usuario objeto de la Usuario
     **/
     public void eliminarUsuario(@RequestBody Usuario usuario){
-        usuarioDao.delete(usuario);
+        usuarioDao.deleteById(usuario.getId());
     }
     
     /**
