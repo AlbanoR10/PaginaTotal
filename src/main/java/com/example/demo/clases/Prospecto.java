@@ -41,4 +41,6 @@ public class Prospecto implements Serializable{
     @Column(name = "telefono")
     private String telefono;
     
+    @Column(name="activo", nullable = true)
+    private boolean activo;
 }
