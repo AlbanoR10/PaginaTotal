@@ -112,7 +112,7 @@ public class Controlador {
     @CrossOrigin
     @PostMapping(value="/editarProspecto", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void editarProspecto(@RequestBody Prospecto prospecto){
-        prospectosControlador.guardar(prospecto);
+        prospectosControlador.actualizar(prospecto);
     }
     
     
@@ -195,7 +195,7 @@ public class Controlador {
     @CrossOrigin
     @PostMapping(value="/editarCotizacion", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void editarCotizacion(@RequestBody Cotizacion cotizacion){
-        cotizacionControlador.guardar(cotizacion);
+        cotizacionControlador.actualizarCotizacion(cotizacion);
     }
     
     //=========================================================================================================

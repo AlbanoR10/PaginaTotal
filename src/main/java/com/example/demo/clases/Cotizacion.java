@@ -15,32 +15,36 @@ import javax.persistence.Table;
 import lombok.Data;
 
 /**
-* Clase cotizacion representante del modelo
-**/
+ * Clase cotizacion representante del modelo
+*
+ */
 @Data
 @Entity
 @Table(name = "Cotizacion")
-public class Cotizacion implements Serializable{
+public class Cotizacion implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_cotizacion")
+    @Column(name = "id_cotizacion")
     private Long idCotizacion;
-    
-    @OneToOne(cascade=CascadeType.REMOVE, optional=true)
+
+    @OneToOne(cascade = CascadeType.REMOVE, optional = true)
     @JoinColumn(name = "id_paquete")
     private Paquete paquete;
-    
-    
+
     @ManyToOne
-    @JoinColumn(name="id_usuario", nullable=false)
+    @JoinColumn(name = "id_usuario", nullable = true)
     private Usuario usuario;
-   
-    @Column(name="numero_telefono", nullable = false)
+
+    @Column(name = "numero_telefono", nullable = true)
     private String numeroTelefono;
-    
-    @Column(name="correo_electronico", nullable = false)
+
+    @Column(name = "correo_electronico", nullable = true)
     private String correoElectronico;
-  
+
+    @Column(name = "activo", nullable = true)
+    private boolean activo;
+
 }
