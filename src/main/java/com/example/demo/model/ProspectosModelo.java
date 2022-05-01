@@ -28,6 +28,7 @@ public class ProspectosModelo {
     **/
     public void guardar(Prospecto prospecto){
          prospecto.setActivo(false);
+         prospectoDao.save(prospecto);
     }
 
     /**
