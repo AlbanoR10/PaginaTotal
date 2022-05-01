@@ -27,7 +27,7 @@ public class ProspectosModelo {
     * @param prospecto objeto de la Prospecto
     **/
     public void guardar(Prospecto prospecto){
-        prospectoDao.save(prospecto);
+         prospecto.setActivo(false);
     }
 
     /**
@@ -43,6 +43,8 @@ public class ProspectosModelo {
     * @param prospecto objeto de la Prospecto
     **/     
     public void actualizar(Prospecto prospecto){
-        prospectoDao.save(prospecto);
+        Prospecto prospectoACambiar = prospectoDao.findById(prospecto.getId()).get();
+        prospectoACambiar.setActivo(!prospectoACambiar.isActivo());
+        prospectoDao.save(prospectoACambiar);
     }
 }
