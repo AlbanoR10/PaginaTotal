@@ -53,7 +53,7 @@ public class ProspectosControlador {
     * @param prospecto objeto de la Prospecto
     **/    
     public void actualizar(Prospecto prospecto){
-        prospectosModelo.guardar(prospecto);
+        prospectosModelo.actualizar(prospecto);
     }
     
     /**

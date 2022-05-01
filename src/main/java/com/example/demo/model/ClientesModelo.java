@@ -64,6 +64,6 @@ public class ClientesModelo {
     **/
     public void eliminar(Clientes clientes){
         System.out.println("Apunto de eliminar");
-        clientesDao.delete(clientes);
+        clientesDao.deleteById(clientes.getId());
     }
 }
