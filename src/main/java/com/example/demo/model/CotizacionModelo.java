@@ -35,9 +35,11 @@ public class CotizacionModelo {
             usua = usuarioDao.findByNumeroEmpleado(cotizacion.getUsuario().getNumeroEmpleado());
             cotizacion.setUsuario(usua);
             cotizacion.getPaquete().setCotizacion(cotizacion);
+            cotizacion.setActivo(false);
             paqueteDao.save(cotizacion.getPaquete());
         }else{
             cotizacion.getPaquete().setCotizacion(cotizacion);
+            cotizacion.setActivo(false);
             paqueteDao.save(cotizacion.getPaquete());
         }
     }
@@ -56,7 +58,7 @@ public class CotizacionModelo {
     **/
     public void eliminar(Cotizacion cotizacion){
         System.out.println("Apunto de eliminar");
-        cotizacionDao.delete(cotizacion);
+        cotizacionDao.deleteById(cotizacion.getIdCotizacion());
     }
 
     /**
@@ -64,7 +66,9 @@ public class CotizacionModelo {
     * @param cotizacion objeto de la Cotizacion
     **/   
     public void actualizarCotizacion(Cotizacion cotizacion){
-        cotizacionDao.save(cotizacion);
+        Cotizacion cotizacionACambiar = cotizacionDao.findById(cotizacion.getIdCotizacion()).get();
+        cotizacionACambiar.setActivo(!cotizacionACambiar.isActivo());
+        cotizacionDao.save(cotizacionACambiar);
     }
     
     /**
