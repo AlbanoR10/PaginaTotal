@@ -24,21 +24,19 @@ public class Paquete implements Serializable{
     public Paquete() {
     }
 
-    public Paquete(Long idPaquete, String velocidadInternet, boolean television, boolean nuevoTotalPlayTv, boolean netflix, boolean amazon, String cantidadPantallasNetflix, String wifiExtender, String tvAdicional, String nuevoTotalPlayTvAdicional, boolean canales140, boolean canales230, boolean canales280) {
-        this.idPaquete = idPaquete;
-        this.velocidadInternet = velocidadInternet;
-        this.television = television;
-        this.nuevoTotalPlayTv = nuevoTotalPlayTv;
-        this.netflix = netflix;
-        this.amazon = amazon;
-        this.cantidadPantallasNetflix = cantidadPantallasNetflix;
-        this.wifiExtender = wifiExtender;
-        this.tvAdicional = tvAdicional;
-        this.nuevoTotalPlayTvAdicional = nuevoTotalPlayTvAdicional;
-        this.canales140 = canales140;
-        this.canales230 = canales230;
-        this.canales280 = canales280;
-    }
+//    public Paquete(Long idPaquete, String velocidadInternet, boolean television, boolean nuevoTotalPlayTv, boolean netflix, boolean amazon, String cantidadPantallasNetflix, String wifiExtender, String tvAdicional, String nuevoTotalPlayTvAdicional, boolean canales140, boolean canales230, boolean canales280) {
+//        this.idPaquete = idPaquete;
+//        this.velocidadInternet = velocidadInternet;
+//        this.television = television;
+//        this.netflix = netflix;
+//        this.amazon = amazon;
+//        this.cantidadPantallasNetflix = cantidadPantallasNetflix;
+//        this.wifiExtender = wifiExtender;
+//        this.tvAdicional = tvAdicional;
+//        this.canales140 = canales140;
+//        this.canales230 = canales230;
+//        this.canales280 = canales280;
+//    }
     
     
     @Id
@@ -50,29 +48,26 @@ public class Paquete implements Serializable{
     private String velocidadInternet;
     
     @Column(name="television", nullable = false)
-    private boolean television;
-    
-    @Column(name="nuevo_total_play_tv")
-    private boolean nuevoTotalPlayTv;
+    private String television;
     
     @Column(name="netflix")
     private boolean netflix;
     
     @Column(name="amazon")
     private boolean amazon;
+
+    @Column(name="hbo")
+    private boolean hbo;
     
-    @Column(name="cantidad_pantallas_netflix")
-    private String cantidadPantallasNetflix;
+    @Column(name="star")
+    private boolean star;
     
     @Column(name="wifi_extender", nullable = false)
     private String wifiExtender;
     
     @Column(name="tv_adicional")
     private String tvAdicional;
-    
-    @Column(name="nuevo_total_play_tv_adicional")
-    private String nuevoTotalPlayTvAdicional;
-    
+
     @Column(name="canales140")
     private boolean canales140;
     
