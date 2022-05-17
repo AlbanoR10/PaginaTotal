@@ -2,6 +2,7 @@ package com.example.demo.clases;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,5 +47,8 @@ public class Cotizacion implements Serializable {
 
     @Column(name = "activo", nullable = true)
     private boolean activo;
+
+    @Column(name = "fecha_cotizacion")
+    private Date fechaCotizacion;
 
 }
