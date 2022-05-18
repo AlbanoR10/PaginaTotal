@@ -60,4 +60,9 @@ public class ClientesControlador {
         System.out.println("Apunto de eliminar");
         clientesModelo.eliminar(clientes);
     }
+    
+    public void actualizar(Clientes clientes){
+        
+        clientesModelo.actualizar(clientes);
+    }
 }

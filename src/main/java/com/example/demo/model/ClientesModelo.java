@@ -66,4 +66,11 @@ public class ClientesModelo {
         System.out.println("Apunto de eliminar");
         clientesDao.deleteById(clientes.getId());
     }
+    
+    public void actualizar(Clientes clientes){
+        Clientes x = clientesDao.findById(clientes.getId()).get();
+        x.setPrimerPago(clientes.isPrimerPago());
+        x.setSegundoPago(clientes.isSegundoPago());
+        clientesDao.save(x);
+    }
 }
