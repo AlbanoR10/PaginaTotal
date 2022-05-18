@@ -31,28 +31,28 @@ public class Clientes implements Serializable{
     private Long id;
     
     @ManyToOne
-    @JoinColumn(name="id_usuario", nullable=false)
+    @JoinColumn(name="id_usuario")
     private Usuario usuario;
     
-    @Column(name="nombre")
+    @Column(name="nombre", nullable=true)
     private String nombre;
     
-    @Column(name = "apellido_paterno")
+    @Column(name = "apellido_paterno", nullable=true)
     private String apellidoPaterno;
     
-    @Column(name = "apellido_materno")
+    @Column(name = "apellido_materno", nullable=true)
     private String apellidoMaterno;
     
-    @Column(name = "fecha_contratacion")
+    @Column(name = "fecha_contratacion", nullable=true)
     private Date fechaNacimiento;
     
-    @Column(name = "paquete_contratado")
+    @Column(name = "paquete_contratado", nullable=true)
     private String paqueteContratado;
     
-    @Column(name="primer_pago")
+    @Column(name="primer_pago", nullable=true)
     private boolean primerPago;
     
-    @Column(name="segundo_pago")
+    @Column(name="segundo_pago", nullable=true)
     private boolean segundoPago;
 
 }

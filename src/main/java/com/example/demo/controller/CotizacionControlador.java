@@ -6,6 +6,7 @@ import com.example.demo.clases.Usuario;
 import com.example.demo.dao.UsuarioDao;
 import com.example.demo.model.CotizacionModelo;
 import com.example.demo.model.UsuarioModelo;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -57,6 +58,7 @@ public class CotizacionControlador {
         if (velocidadInternet<20 || velocidadInternet>1000) {
             throw new RuntimeException("Velocidad de Internet incorrecta");
         }
+        cotizacion.setFechaCotizacion(new Date());
         cotizacionModelo.guardar(cotizacion);
     }
 

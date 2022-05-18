@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.clases.Prospecto;
 import com.example.demo.model.ProspectosModelo;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,7 +24,7 @@ public class ProspectosControlador {
     * @param prospecto objeto de la Prospecto
     **/
     public void guardar(Prospecto prospecto){
-        
+        prospecto.setFechaProspeccion(new Date());
         //Verificacion Numero Telefono
         if(prospecto.getTelefono()!=""){
             numeroTelefonoValido(prospecto.getTelefono());

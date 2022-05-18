@@ -1,6 +1,7 @@
 package com.example.demo.clases;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,4 +44,7 @@ public class Prospecto implements Serializable{
     
     @Column(name="activo", nullable = true)
     private boolean activo;
+
+    @Column(name = "fecha_prospeccion")
+    private Date fechaProspeccion;
 }
