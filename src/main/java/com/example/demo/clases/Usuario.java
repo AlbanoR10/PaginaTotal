@@ -24,31 +24,55 @@ import lombok.Data;
 public class Usuario implements Serializable{
     private static final long serialVersionUID = 1L;
     
+    /**
+     * Id unica de cada usuario
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_usuario")
     private Long id;
     
+    /**
+     * Cotizacion de cada usuario
+     */
     @JsonIgnore   
     @OneToMany(mappedBy="usuario", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Set<Cotizacion> cotizacion;
     
+    /**
+     * Clientes de cada usuario
+     */
     @JsonIgnore
     @OneToMany(mappedBy="usuario", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Set<Clientes> clientes;
 
+    /**
+     * Nombre del usuario
+     */
     @Column(name="nombre")
     private String nombre;
     
+    /**
+     * Apellido paterno del usuario
+     */
     @Column(name = "apellido_paterno")
     private String apellidoPaterno;
     
+    /**
+     * Apellido materno del usuario
+     */
     @Column(name = "apellido_materno")
     private String apellidoMaterno;
     
+    /**
+     * Fecha de nacimiento del usuario
+     */
     @Column(name = "fecha_nacimiento")
     private Date fechaNacimiento;
     
+    /**
+     * Numero de empleado unico del usuario
+     */
     @Column(name = "numero_empleado")
     private String numeroEmpleado;
     

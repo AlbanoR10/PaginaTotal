@@ -13,71 +13,109 @@ import javax.persistence.Table;
 import lombok.Data;
 
 /**
-* Clase paquete representante del modelo
-**/
+ * Clase paquete representante del modelo
+*
+ */
 @Data
 @Entity
 @Table(name = "Paquete")
-public class Paquete implements Serializable{
+public class Paquete implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     public Paquete() {
     }
 
-//    public Paquete(Long idPaquete, String velocidadInternet, boolean television, boolean nuevoTotalPlayTv, boolean netflix, boolean amazon, String cantidadPantallasNetflix, String wifiExtender, String tvAdicional, String nuevoTotalPlayTvAdicional, boolean canales140, boolean canales230, boolean canales280) {
-//        this.idPaquete = idPaquete;
-//        this.velocidadInternet = velocidadInternet;
-//        this.television = television;
-//        this.netflix = netflix;
-//        this.amazon = amazon;
-//        this.cantidadPantallasNetflix = cantidadPantallasNetflix;
-//        this.wifiExtender = wifiExtender;
-//        this.tvAdicional = tvAdicional;
-//        this.canales140 = canales140;
-//        this.canales230 = canales230;
-//        this.canales280 = canales280;
-//    }
-    
-    
+    /**
+     * Id unico del paqutee
+     *
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_paquete")
+    @Column(name = "id_paquete")
     private Long idPaquete;
-    
-    @Column(name="velocidad_internet", nullable = false)
-    private String velocidadInternet;
-    
-    @Column(name="television", nullable = false)
-    private String television;
-    
-    @Column(name="netflix")
-    private boolean netflix;
-    
-    @Column(name="amazon")
-    private boolean amazon;
 
-    @Column(name="hbo")
+    /**
+     * Velocidad de internet seleccionada
+     *
+     */
+    @Column(name = "velocidad_internet", nullable = false)
+    private String velocidadInternet;
+
+    /**
+     * Variable para ver que tipo de television se selecciona
+     *
+     */
+    @Column(name = "television", nullable = false)
+    private String television;
+
+    /**
+     * Variable para ver si se selecciono netflix
+     *
+     */
+    @Column(name = "netflix")
+    private boolean netflix;
+
+    /**
+     * Variable para ver si se selecciono amazon
+     *
+     */
+    @Column(name = "amazon")
+    private boolean amazon;
+    /**
+     * Variable para ver si se selecciono Amazon
+     *
+     */
+    @Column(name = "hbo")
     private boolean hbo;
-    
-    @Column(name="star")
+
+    /**
+     * Variable para ver si se selecciono Starplus
+     *
+     */
+    @Column(name = "star")
     private boolean star;
-    
-    @Column(name="wifi_extender", nullable = false)
+
+    /**
+     * Cantidad de wifiExtender seleccionados
+     *
+     */
+    @Column(name = "wifi_extender", nullable = false)
     private String wifiExtender;
-    
-    @Column(name="tv_adicional")
+
+    /**
+     * Cantidad de tv adicionales seleccionadas
+     *
+     */
+    @Column(name = "tv_adicional")
     private String tvAdicional;
 
-    @Column(name="canales140")
+    /**
+     * Variable para ver si se selecciono 140 canales
+     *
+     */
+    @Column(name = "canales140")
     private boolean canales140;
-    
-    @Column(name="canales230")
+
+    /**
+     * Variable para ver si se selecciono 230 canales
+     *
+     */
+    @Column(name = "canales230")
     private boolean canales230;
-    
-    @Column(name="canales280")
+
+    /**
+     * Variable para ver si se selecciono 280 canales
+     *
+     */
+    @Column(name = "canales280")
     private boolean canales280;
-    
-    @JsonIgnore    
+
+    /**
+     * Cotizacion con la que se asocia
+     *
+     */
+    @JsonIgnore
     @OneToOne(mappedBy = "paquete", cascade = CascadeType.ALL)
     private Cotizacion cotizacion;
 }

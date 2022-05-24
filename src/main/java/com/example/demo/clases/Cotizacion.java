@@ -17,7 +17,7 @@ import lombok.Data;
 
 /**
  * Clase cotizacion representante del modelo
-*
+ *
  */
 @Data
 @Entity
@@ -26,28 +26,56 @@ public class Cotizacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * id unico de cada cotizacion
+     *
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cotizacion")
     private Long idCotizacion;
 
+    /**
+     * id del paquete asociado con la cotizacion
+     *
+     */
     @OneToOne(cascade = CascadeType.REMOVE, optional = true)
     @JoinColumn(name = "id_paquete")
     private Paquete paquete;
 
+    /**
+     * id del usuario asociado con la cotizacion
+     *
+     */
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = true)
     private Usuario usuario;
 
+    /**
+     * Numero de telefono del que cotiza
+     *
+     */
     @Column(name = "numero_telefono", nullable = true)
     private String numeroTelefono;
 
+    /**
+     * Correo electronido del que cotiza
+     *
+     */
     @Column(name = "correo_electronico", nullable = true)
     private String correoElectronico;
 
+    /**
+     * Variable para ver si cotizacion esta activa
+     *
+     */
     @Column(name = "activo", nullable = true)
     private boolean activo;
 
+    /**
+     * Fecha de cotizacion
+     *
+     */
     @Column(name = "fecha_cotizacion")
     private Date fechaCotizacion;
 

@@ -28,23 +28,48 @@ public class Prospecto implements Serializable{
         this.telefono = telefono;
     }
     
+    /**
+     * Id unico de cada prospecto
+     *
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
+
+    /**
+     * Nombre del prospecto
+     *
+     */
     
     @Column(name="nombre")
     private String nombre;
     
+    /**
+     * Nombre del paquete seleccionado
+     *
+     */
     @Column(name = "paquete")
     private String paquete;
     
+    /**
+     * Numero de telefono 
+     *
+     */
     @Column(name = "telefono")
     private String telefono;
     
+    /**
+     * Ver si esta activo el prospecto
+     *
+     */
     @Column(name="activo", nullable = true)
     private boolean activo;
 
+    /**
+     * Fecha en que se hizo el contacto
+     *
+     */
     @Column(name = "fecha_prospeccion")
     private Date fechaProspeccion;
 }

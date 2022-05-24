@@ -17,42 +17,71 @@ import javax.persistence.Table;
 import lombok.Data;
 
 /**
-* Clase clientes representante del modelo
-**/
+ * Clase clientes representante del modelo
+ *
+ */
 @Data
 @Entity
-@Table(name="CLIENTES")
-public class Clientes implements Serializable{
+@Table(name = "CLIENTES")
+public class Clientes implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
+    /**
+     * ID unico para clientes
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_clientes")
+    @Column(name = "id_clientes")
     private Long id;
-    
+
+    /**
+     * Id del usuario con el que se vincula
+     */
     @ManyToOne
-    @JoinColumn(name="id_usuario")
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
-    
-    @Column(name="nombre", nullable=true)
+
+    /**
+     * Nombre del cliente
+     */
+    @Column(name = "nombre", nullable = true)
     private String nombre;
-    
-    @Column(name = "apellido_paterno", nullable=true)
+
+    /**
+     * Apellido paterno del cliente
+     */
+    @Column(name = "apellido_paterno", nullable = true)
     private String apellidoPaterno;
-    
-    @Column(name = "apellido_materno", nullable=true)
+
+    /**
+     * Apellido materno del cliente
+     */
+    @Column(name = "apellido_materno", nullable = true)
     private String apellidoMaterno;
-    
-    @Column(name = "fecha_contratacion", nullable=true)
+
+    /**
+     * Fecha de contratacion del paquete
+     */
+    @Column(name = "fecha_contratacion", nullable = true)
     private Date fechaNacimiento;
-    
-    @Column(name = "paquete_contratado", nullable=true)
+
+    /**
+     * Nombre del paquete contratado
+     */
+    @Column(name = "paquete_contratado", nullable = true)
     private String paqueteContratado;
-    
-    @Column(name="primer_pago", nullable=true)
+
+    /**
+     * Especificacion del segundo pago
+     */
+    @Column(name = "primer_pago", nullable = true)
     private boolean primerPago;
-    
-    @Column(name="segundo_pago", nullable=true)
+
+    /**
+     * Especificacion del segudno pago
+     */
+    @Column(name = "segundo_pago", nullable = true)
     private boolean segundoPago;
 
 }

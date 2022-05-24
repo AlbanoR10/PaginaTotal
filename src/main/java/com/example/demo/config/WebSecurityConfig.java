@@ -17,19 +17,30 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 /**
  * Clase WebSecurityConfig que maneja la seguridad web
-*
+ *
  */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /**
+     * Variable JwtAutentificacionDeEntrada que autentifica accesos en el proyecto
+     *
+     */
     @Autowired
     private JwtAutentificacionDeEntrada jwtAutentificacionDeEntrada;
 
+    /**
+     * Variable de la clase de detalles del servicio
+     */
     @Autowired
     private UserDetailsService jwtDetallesServicioUsuario;
 
+    /**
+     * Clase JwtFiltroDePeticion representante del modelo
+     *
+     */
     @Autowired
     private JwtFiltroDePeticion jwtFiltroPeticion;
 
@@ -37,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * Método para codificar password
      *
      * @param autentificacion objeto de la clase AuthenticationManagerBuilder
-        *
+     *
      */
     @Override
     public void configure(AuthenticationManagerBuilder autentificacion) throws Exception {
@@ -51,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * Método que regresa objeto que encrypta
      *
      * @return BCryptPasswordEncoder
-        *
+     *
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -62,7 +73,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * Método que regresa objeto manejador de autentificacion
      *
      * @return authenticationManagerBean
-        *
+     *
      */
     @Bean
     @Override
@@ -72,7 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Método que configura las urls de la app
-        *
+     *
      */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
