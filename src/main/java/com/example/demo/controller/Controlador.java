@@ -134,15 +134,19 @@ public class Controlador {
     }
 
     @CrossOrigin
+    @GetMapping("/probarCorreo")
+    public void probarCorreo() {
+        sender.sendEmail("albano.eare@gmail.com");
+    }
+
+    @CrossOrigin
     @GetMapping("/enviarRecordatorios")
     public void enviarCorreosRecordatorio() {
         List<Cotizacion> x = cotizacionControlador.listarCotizacion();
         for (Cotizacion cotizacion : x) {
-            sender.sendEmail(cotizacion.getCorreoElectronico());
+//            sender.sendEmail(cotizacion);
         }
     }
-
-
 
     /**
      * Método para guardar Cotizacion
@@ -152,9 +156,10 @@ public class Controlador {
     @CrossOrigin
     @PostMapping(value = "/guardarCotizacion", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void guardar(@RequestBody Cotizacion cotizacion) {
-        sender.sendEmail(cotizacion.getCorreoElectronico());
+//        sender.sendEmail(cotizacion);
         cotizacionControlador.guardar(cotizacion);
     }
+
 
     /**
      * Método para eliminar Cotizacion

@@ -25,7 +25,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
-     * Variable JwtAutentificacionDeEntrada que autentifica accesos en el proyecto
+     * Variable JwtAutentificacionDeEntrada que autentifica accesos en el
+     * proyecto
      *
      */
     @Autowired
@@ -121,7 +122,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/listarCotizacionPorUsuarioNumero",
                         "/listarClientesPorUsuarioNumero",
                         "/guardarCliente",
-                        "/enviarRecordatorios").permitAll().
+                        "/enviarRecordatorios",
+                        "/probarCorreo").permitAll().
                 // all other requests need to be authenticated
                 anyRequest().authenticated().and().
                 // make sure we use stateless session; session won't be used to
